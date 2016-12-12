@@ -1,0 +1,58 @@
+* {box-sizing:border-box;}
+body {background:url(http://i.imgur.com/qPsly9L.png);}
+
+.bgimg {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    z-index:-1;
+    opacity:1;
+}
+
+.greeting {
+    color:black;
+    text-shadow: 1px 1px 3px rgba(255,255,255, .5);
+    text-align: center;
+}
+
+.wikipedia-container {
+    font-family: 'Eczar', serif;
+    float:right;
+    width:35%;
+    padding:10px;
+    margin: 20px 5% auto 5%;
+    background-color: rgba(255,255,255,0.2);
+    text-align: left;
+}
+
+#wikipedia-header {
+    text-align: center;
+}
+
+
+#nytimes-header {
+    font-family: 'UnifrakturMaguntia', cursive;
+    text-align: center;
+}
+
+.nytimes-container {
+    width: 45%;
+    padding: 10px;
+    margin: 20px 5% auto 5%;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.article-list {
+    margin: 0;
+    padding: 0;
+}
+
+.article {
+    list-style-type: none;
+    padding:10px;
+    border-top: 1px solid #CCC;
+}
+.article:first-child {
+    border-top:none;
+}
