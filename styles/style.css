@@ -1,13 +1,18 @@
 * {box-sizing:border-box;}
-body {background:url(http://i.imgur.com/qPsly9L.png);}
 
-.bgimg {
-    position:fixed;
-    top: 0;
-    left: 0;
-    width:100%;
-    z-index:-1;
-    opacity:1;
+body {background: url(http://i.imgur.com/qPsly9L.png);
+background-repeat: no-repeat;
+background-attachment: fixed;
+font-family: "comic sans ms", cursive, sans-serif;
+text-align: center;}
+
+
+#form-container{
+    text-align: center;
+}
+#submit-btn{
+    margin: 4px;
+
 }
 
 .greeting {
@@ -15,19 +20,32 @@ body {background:url(http://i.imgur.com/qPsly9L.png);}
     text-shadow: 1px 1px 3px rgba(255,255,255, .5);
     text-align: center;
 }
+#google{
+text-align: center;
+ width: 100%;
+ height: auto;
 
-.wikipedia-container {
+}
+
+#wikipedia {
     font-family: 'Eczar', serif;
-    float:right;
-    width:35%;
     padding:10px;
-    margin: 20px 5% auto 5%;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.4);
     text-align: left;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #wikipedia-header {
     text-align: center;
+}
+#wikiList{
+    color: yellow;
+    padding: 2px;
+}
+
+a{
+    color: green;
 }
 
 
@@ -36,11 +54,11 @@ body {background:url(http://i.imgur.com/qPsly9L.png);}
     text-align: center;
 }
 
-.nytimes-container {
-    width: 45%;
+#nytimes {
     padding: 10px;
-    margin: 20px 5% auto 5%;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.4);
+    margin-bottom: 60px;
+    margin-top:10px;
 }
 
 .article-list {
@@ -49,10 +67,24 @@ body {background:url(http://i.imgur.com/qPsly9L.png);}
 }
 
 .article {
+
     list-style-type: none;
-    padding:10px;
+    padding:2px;
     border-top: 1px solid #CCC;
 }
-.article:first-child {
-    border-top:none;
+
+
+
+@media (min-width: 1281px){
+   body{background-repeat: repeat-x;}
 }
+
+
+
+
+
+
+
+
+
+

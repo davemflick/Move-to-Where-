@@ -2,6 +2,7 @@
 function loadData() {
 
     var $body = $('body');
+    var $google = $('#google');
     var $wikiElem = $('#wikipedia-links');
     var $nytHeaderElem = $('#nytimes-header');
     var $nytElem = $('#nytimes-articles');
@@ -15,26 +16,28 @@ function loadData() {
    var streetStr = $('#street').val();
    var cityStr = $('#city').val();
    var address = streetStr +" "+ cityStr;
-   var cityWiki = cityStr.replace(/\s/g, '');
+   
 
    
   
    
-   $greeting.text("So, you want to live at " + address +"?");
+   $greeting.text("Off to " + address +"!");
    
    //Google Street View API Key "AIzaSyBEiC6y3T4fMrwOXdIfqaFfGgVvnO_PiQA"
    var stViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location='+address+'';
-   $body.append('<img class="bgimg" src="'+ stViewUrl + '">');
+   $google.append('<img class="bgimg" src="'+ stViewUrl + '">');
 
 // NYT Article Search API Key: c616321bac5c474cb78b1a1aae61e4c9
    var nytUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + cityStr + '&sort=newest&api-key=c616321bac5c474cb78b1a1aae61e4c9';
+
    $.getJSON(nytUrl, function(data){
     $nytHeaderElem.text("New York Times articles related to " + cityStr);
     var articles = data.response.docs;
-    for (var i=0; i<articles.length; i++)
-    $nytElem.append("<li class='article'>"+"<a href='"+articles[i].web_url+"' target='_blank'>"+ articles[i].headline.main +"</a>" +"</li>" + "<br>");
-   }).error(function(){ 
-        $nytHeaderElem.text("New York Times articles could not be loaded!");
+    for (var i=0; i<articles.length; i++){
+    $nytElem.append("<li class='article'>"+"<a href='"+articles[i].web_url+"' target='_blank' id='box'>"+ articles[i].headline.main +"</a>" +"</li>");
+  };
+      }).fail(function(e){ 
+        $nytHeaderElem.text('New York Times articles could not be loaded!');
        });
 
        //Wiki Start
@@ -52,16 +55,25 @@ function loadData() {
       for (var i = 0; i < data[1].length; i++) {
         var articleHeading = data[1][i];
         var articleUrl = data[3][i];
-        $wikiElem.append('<li> <a href="' + articleUrl + '" target="_blank">' + articleHeading + '</a></li>');
+        $wikiElem.append('<li id="wikiList"> <a id="wikiLinks" href="' + articleUrl + '" target="_blank">' + articleHeading + '</a></li>');
       }
       clearTimeout(wikiRequestTimeout);
     }
-});
+}); //ends wiki ajax
 
 
     // YOUR CODE GOES HERE!
 
     return false;
-};
+}; //Ends loadData function
 
 $('#form-container').submit(loadData);
+
+
+
+
+
+
+
+
+
