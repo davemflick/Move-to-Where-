@@ -2,7 +2,7 @@
 function loadData() {
 
     var $body = $('body');
-    var $google = $('#google');
+    var $google = $('#googImg');
     var $wikiElem = $('#wikipedia-links');
     var $nytHeaderElem = $('#nytimes-header');
     var $nytElem = $('#nytimes-articles');
@@ -24,8 +24,11 @@ function loadData() {
    $greeting.text("Off to " + address +"!");
    
    //Google Street View API Key "AIzaSyBEiC6y3T4fMrwOXdIfqaFfGgVvnO_PiQA"
+
    var stViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location='+address+'';
-   $google.append('<img class="bgimg" src="'+ stViewUrl + '">');
+   $google.attr('src', stViewUrl );
+  
+
 
 // NYT Article Search API Key: c616321bac5c474cb78b1a1aae61e4c9
    var nytUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + cityStr + '&sort=newest&api-key=c616321bac5c474cb78b1a1aae61e4c9';
